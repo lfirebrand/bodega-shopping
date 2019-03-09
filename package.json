@@ -1,0 +1,11 @@
+{
+  "name": "shopping-app",
+  "version": "1.0.0",
+  "description": "A shopping list application for users to create and share shopping lists",
+  "main": "server.js",
+  "scripts": {
+    "test": "export NODE_ENV=test && jasmine"
+  },
+  "author": "Alexis Zgud",
+  "license": "ISC"
+}
