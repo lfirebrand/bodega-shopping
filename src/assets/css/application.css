@@ -1,0 +1,9 @@
+body {
+    padding-top: 54px;
+}
+
+.jumbotron {
+background-image: url("http://source.unsplash.com/PPEoJOw2ySE");
+background-size: cover;
+height: 100%;
+}
