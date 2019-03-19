@@ -35,3 +35,13 @@ describe("routes : lists", () => {
     });
   });
 });
+
+describe("GET /lists/new", () => {
+  it("should render a new list form", done => {
+    request.get(`${base}new`, (err, res, body) => {
+      expect(err).toBeNull();
+      expect(body).toContain("New List");
+      done();
+    });
+  });
+});

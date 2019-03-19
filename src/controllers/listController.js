@@ -9,5 +9,8 @@ module.exports = {
         res.render("lists/index", { lists });
       }
     });
+  },
+  new(req, res, next) {
+    res.render("lists/new");
   }
 };

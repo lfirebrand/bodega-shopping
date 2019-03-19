@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+
+  <body>
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
+      <h1>New List</h1>
+
+      <form action="/lists/create" method="post">
+        <div class="form-group">
+          <label for="listName">List Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="listName"
+            aria-describedby="listNameHelp"
+            placeholder="Enter name of new list"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+    <% include ../static/partials/baseScript.ejs %>
+  </body>
+</html>
