@@ -7,20 +7,20 @@
   <body>
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
-      <h1>New Shopping List</h1>
-
-      <form action="/lists/create" method="post">
+      <h1>Edit List</h1>
+      <form action="/lists/<%= list.id %>/update" method="post">
         <div class="form-group">
-          <label for="listName">List Name</label>
+          <label for="listName">List name</label>
           <input
+            value="<%= list.listName %>"
             type="text"
             class="form-control"
             name="listName"
             aria-describedby="listNameHelp"
-            placeholder="Enter name of new list"
+            placeholder="Enter List Name"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Update</button>
       </form>
     </main>
     <% include ../static/partials/baseScript.ejs %>
