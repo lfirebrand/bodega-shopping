@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       purchased: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false
+        type: DataTypes.BOOLEAN
       },
       listId: {
         type: DataTypes.INTEGER,

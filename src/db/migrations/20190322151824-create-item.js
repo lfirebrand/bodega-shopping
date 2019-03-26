@@ -17,7 +17,6 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       purchased: {
-        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

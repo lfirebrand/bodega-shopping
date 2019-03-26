@@ -8,13 +8,26 @@
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
       <h1><%= list.listName %></h1>
+      <h2>Items</h2>
+      <ul class="list group">
+        <% list.items.forEach((item) => { %>
+        <li class="list-group-item">
+          <a href="/lists/<%= list.id %>/items/<%= item.id %>">
+            <p><%= item.itemName %> | Quantity to buy: <%= item.quantity %></p>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
       <a href="/lists/<%= list.id %>/edit" class="btn btn-warning">Edit</a>
       <form
         style="display:initial"
         action="/lists/<%= list.id %>/destroy"
         method="post"
       >
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="/lists/<%= list.id %>/items/new" class="btn btn-success"
+          >New Item</a
+        >
+        <button type="submit" class="btn btn-danger">Delete List</button>
       </form>
     </main>
     <% include ../static/partials/baseScript.ejs %>
