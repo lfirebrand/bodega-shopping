@@ -9,8 +9,6 @@
       <% include ../static/partials/navbar.ejs %>
       <h2>Item: <%= item.itemName %></h2>
       <p>How many: <%= item.quantity %></p>
-      Already purchased? <input id="purchased" type="checkbox" name="purchased"
-      <%= item.purchased ? "checked" : "" %> />
       <form
         style="display:initial"
         action="/lists/<%= item.listId %>/items/<%= item.id %>/destroy"
@@ -23,6 +21,9 @@
         >
         <button type="submit" class="btn btn-danger">Delete Item</button>
       </form>
+      <a href="/lists/<%= item.listId %>" class="btn btn-success"
+        >Back to List</a
+      >
     </main>
     <% include ../static/partials/baseScript.ejs %>
   </body>

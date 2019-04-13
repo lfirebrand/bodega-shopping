@@ -8,7 +8,8 @@
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
 
-      <h1>Shopping Lists</h1>
+      <h1>Your Lists</h1>
+      <p>Where are you headed to first?</p>
 
       <ul class="list-group">
         <!-- #1 -->
@@ -19,6 +20,8 @@
         </li>
         <% }) %>
       </ul>
+      <br />
+      <a href="/lists/new" class="btn btn-success">New List</a>
     </main>
   </body>
 </html>
