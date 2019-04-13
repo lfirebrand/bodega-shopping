@@ -4,10 +4,12 @@ module.exports = {
     const listRoutes = require("../routes/lists");
     const itemRoutes = require("../routes/items");
     const userRoutes = require("../routes/users");
+    const purchaseRoutes = require("../routes/purchases");
 
     app.use(staticRoutes);
     app.use(listRoutes);
     app.use(itemRoutes);
     app.use(userRoutes);
+    app.use(purchaseRoutes);
   }
 };

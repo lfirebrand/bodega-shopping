@@ -9,13 +9,7 @@
       <% include ../static/partials/navbar.ejs %>
       <h2>Item: <%= item.itemName %></h2>
       <p>How many: <%= item.quantity %></p>
-      Already purchased? <input id="purchased" type="checkbox" name="purchased"
-      <%= item.purchased ? "checked" : "" %> />
-      <form
-        style="display:initial"
-        action="/lists/<%= item.listId %>/items/<%= item.id %>/destroy"
-        method="post"
-      >
+      <% if(currentUser) { %> <% include ../purchases/purchasing.ejs %> <% } %>
         <a
           href="/lists/<%= item.listId %>/items/<%= item.id %>/edit"
           class="btn btn-warning"
