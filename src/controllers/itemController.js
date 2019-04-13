@@ -49,10 +49,7 @@ module.exports = {
   update(req, res, next) {
     itemQueries.updateItem(req.params.id, req.body, (err, item) => {
       if (err || item == null) {
-        res.redirect(
-          404,
-          `/lists/${req.params.listId}/items/${req.params.id}/edit`
-        );
+        res.redirect(`/lists/${req.params.listId}`);
       } else {
         res.redirect(`/lists/${req.params.listId}/items/${req.params.id}`);
       }
