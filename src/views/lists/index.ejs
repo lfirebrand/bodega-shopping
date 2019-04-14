@@ -21,7 +21,9 @@
         <% }) %>
       </ul>
       <br />
+      <% if(currentUser && currentUser.isAdmin()) { %>
       <a href="/lists/new" class="btn btn-success">New List</a>
+      <% } %>
     </main>
   </body>
 </html>

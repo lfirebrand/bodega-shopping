@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
       listId: {
         type: DataTypes.INTEGER,
         allowNull: false
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
       }
     },
     {}
@@ -26,6 +30,11 @@ module.exports = (sequelize, DataTypes) => {
 
     Item.belongsTo(models.List, {
       foreignKey: "listId",
+      onDelete: "CASCADE"
+    });
+
+    Item.belongsTo(models.User, {
+      foreignKey: "userId",
       onDelete: "CASCADE"
     });
   };
