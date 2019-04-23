@@ -24,6 +24,7 @@
       <a href="/lists/<%= item.listId %>" class="btn btn-success"
         >Back to List</a
       >
+      <% if(currentUser) { %> <% include ../purchases/purchasing.ejs %> <% } %>
     </main>
     <% include ../static/partials/baseScript.ejs %>
   </body>

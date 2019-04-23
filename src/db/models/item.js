@@ -26,8 +26,6 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Item.associate = function(models) {
-    // associations can be defined here
-
     Item.belongsTo(models.List, {
       foreignKey: "listId",
       onDelete: "CASCADE"
@@ -36,6 +34,17 @@ module.exports = (sequelize, DataTypes) => {
     Item.belongsTo(models.User, {
       foreignKey: "userId",
       onDelete: "CASCADE"
+    });
+
+    Item.hasMany(models.Purchase, {
+      foreignKey: "itemId",
+      as: "purchases"
+    });
+  };
+
+  Item.prototype.getPurchaseFor = function(userId) {
+    return this.purchases.find(purchase => {
+      return purchase.userId == userId;
     });
   };
   return Item;
