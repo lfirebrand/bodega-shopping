@@ -1,5 +1,6 @@
 const List = require("./models").List;
 const Item = require("./models").Item;
+const Purchase = require("./models").Purchase;
 
 module.exports = {
   addItem(newItem, callback) {
@@ -12,7 +13,9 @@ module.exports = {
       });
   },
   getItem(id, callback) {
-    return Item.findByPk(id)
+    return Item.findByPk(id, {
+      include: [{ model: Purchase, as: "purchases" }]
+    })
       .then(item => {
         callback(null, item);
       })
