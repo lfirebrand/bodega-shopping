@@ -9,7 +9,8 @@ module.exports = {
       itemName: req.body.itemName,
       quantity: req.body.quantity,
       purchased: req.body.purchased,
-      listId: req.params.listId
+      listId: req.params.listId,
+      userId: req.user.id
     };
     itemQueries.addItem(newItem, (err, item) => {
       if (err) {
