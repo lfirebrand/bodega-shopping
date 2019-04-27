@@ -15,7 +15,7 @@ module.exports = {
       if (err) {
         res.redirect(500, "/items/new");
       } else {
-        res.redirect(303, `/lists/${newItem.listId}/items/${item.id}`);
+        res.redirect(303, `/lists/${newItem.listId}`);
       }
     });
   },
