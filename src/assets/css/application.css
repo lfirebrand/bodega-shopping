@@ -1,5 +1,24 @@
 body {
     padding-top: 54px;
+    font-family: 'Lato', san-serif;
+}
+ 
+h1 {
+    margin-top:  20px;
+    font-weight: bold;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.list-group li:nth-child(1){
+    border: 0 none;
+}
+
+.list-group-item {
+    border: 0 none;
+    padding: .5rem .75rem;
 }
 
 .jumbotron {

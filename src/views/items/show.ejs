@@ -17,13 +17,16 @@
         <a
           href="/lists/<%= item.listId %>/items/<%= item.id %>/edit"
           class="btn btn-warning"
-          >Edit Item</a
         >
-        <button type="submit" class="btn btn-danger">Delete Item</button>
+          <i class="far fa-edit"></i> Edit Item</a
+        >
+        <button type="submit" class="btn btn-danger">
+          <i class="far fa-trash-alt"></i> Delete Item
+        </button>
       </form>
       <% if(currentUser) { %> <% include ../purchases/purchasing.ejs %> <% } %>
-      <a href="/lists/<%= item.listId %>" class="btn btn-outline-success"
-        >Back to Current List</a
+      <a href="/lists/<%= item.listId %>" class="btn btn-outline-success">
+        <i class="fas fa-arrow-left"></i> Back to Current List</a
       >
     </main>
     <% include ../static/partials/baseScript.ejs %>

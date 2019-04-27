@@ -12,17 +12,18 @@
       <p>Where are you headed to first?</p>
 
       <ul class="list-group">
-        <!-- #1 -->
         <% lists.forEach((list) => { %>
-        <!-- #2 -->
         <li class="list-group-item">
+          <i class="fas fa-list fa-xs"></i>
           <a href="/lists/<%= list.id %>"> <%= list.listName %> </a>
         </li>
         <% }) %>
       </ul>
       <br />
       <% if(currentUser && currentUser.isAdmin()) { %>
-      <a href="/lists/new" class="btn btn-success">New List</a>
+      <a href="/lists/new" class="btn btn-success"
+        ><i class="far fa-plus-square"></i> New List</a
+      >
       <% } %>
     </main>
   </body>

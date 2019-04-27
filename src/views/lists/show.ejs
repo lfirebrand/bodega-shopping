@@ -8,27 +8,40 @@
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
       <h1><%= list.listName %></h1>
-      <h2>Items</h2>
+      <h2>What to buy:</h2>
       <ul class="list group">
         <% list.items.forEach((item) => { %>
         <li class="list-group-item">
+          <i class="fa-li fa fa-square fa-xs"></i>
           <a href="/lists/<%= list.id %>/items/<%= item.id %>">
-            <p><%= item.itemName %></a> | Quantity to buy: <%= item.quantity %></p>
+            <%= item.itemName %></a
+          >
+          -- How many: <%= item.quantity %>
         </li>
         <% }) %>
       </ul>
-      
-<% if(currentUser) { %>
-<a href="/lists/<%= list.id %>/items/new" class="btn btn-success">Add New Item</a>
-<% if(currentUser.isAdmin()) { %>
-<a href="/lists/<%= list.id %>/edit" class="btn btn-warning">Edit List</a>
-<form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
-  <button type="submit" class="btn btn-danger">Delete List</button>
-</form>
-<a href="/lists" class="btn btn-outline-success">Back to All Lists</a>
-<% } %>
-<% } %>
 
+      <% if(currentUser) { %>
+      <a href="/lists/<%= list.id %>/items/new" class="btn btn-success">
+        <i class="fas fa-cart-plus"></i> New Item</a
+      >
+      <% if(currentUser.isAdmin()) { %>
+      <a href="/lists/<%= list.id %>/edit" class="btn btn-warning"
+        ><i class="far fa-edit"></i> Edit List</a
+      >
+      <form
+        style="display:initial"
+        action="/lists/<%= list.id %>/destroy"
+        method="post"
+      >
+        <button type="submit" class="btn btn-danger">
+          <i class="far fa-trash-alt"></i> Delete List
+        </button>
+      </form>
+      <a href="/lists" class="btn btn-outline-success"
+        ><i class="fas fa-arrow-left"></i> Back to All Lists</a
+      >
+      <% } %> <% } %>
     </main>
     <% include ../static/partials/baseScript.ejs %>
   </body>
