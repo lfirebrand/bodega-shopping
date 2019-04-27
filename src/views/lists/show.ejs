@@ -16,22 +16,19 @@
             <p><%= item.itemName %></a> | Quantity to buy: <%= item.quantity %></p>
         </li>
         <% }) %>
-
       </ul>
-      <% if(currentUser) { %>
-      <a href="/lists/<%= list.id %>/items/new" class="btn btn-success"
-        >New Item</a
-      >
-      <% if(currentUser.isAdmin()) { %>
-      <form
-        style="display:initial"
-        action="/lists/<%= list.id %>/destroy"
-        method="post"
-      >
-        <button type="submit" class="btn btn-danger">Delete List</button>
-        <a href="/lists/<%= list.id %>/edit" class="btn btn-warning">Edit</a>
-      </form>
-      <% } %> <% } %>
+      
+<% if(currentUser) { %>
+<a href="/lists/<%= list.id %>/items/new" class="btn btn-success">Add New Item</a>
+<% if(currentUser.isAdmin()) { %>
+<a href="/lists/<%= list.id %>/edit" class="btn btn-warning">Edit List</a>
+<form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
+  <button type="submit" class="btn btn-danger">Delete List</button>
+</form>
+<a href="/lists" class="btn btn-outline-success">Back to All Lists</a>
+<% } %>
+<% } %>
+
     </main>
     <% include ../static/partials/baseScript.ejs %>
   </body>

@@ -8,7 +8,6 @@ module.exports = {
     let newItem = {
       itemName: req.body.itemName,
       quantity: req.body.quantity,
-      purchased: req.body.purchased,
       listId: req.params.listId,
       userId: req.user.id
     };
@@ -50,8 +49,10 @@ module.exports = {
   update(req, res, next) {
     itemQueries.updateItem(req.params.id, req.body, (err, item) => {
       if (err || item == null) {
+        console.log(err);
         res.redirect(`/lists/${req.params.listId}`);
       } else {
+        console.log(req.body);
         res.redirect(`/lists/${req.params.listId}/items/${req.params.id}`);
       }
     });

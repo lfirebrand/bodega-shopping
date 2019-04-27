@@ -4,7 +4,9 @@
   action="/lists/<%= item.listId %>/items/<%= item.id %>/purchases/<%= purchase.id %>/destroy"
   method="post"
 >
-  <button type="submit" class="btn btn-outline-danger">Not Purchased</button>
+  <button type="submit" class="btn btn-outline-danger">
+    Mark as Not Purchased
+  </button>
 </form>
 <% } else { %>
 <form
@@ -12,6 +14,8 @@
   action="/lists/<%= item.listId %>/items/<%= item.id %>/purchases/create"
   method="post"
 >
-  <button type="submit" class="btn btn-outline-primary">Purchased</button>
+  <button type="submit" class="btn btn-outline-primary">
+    Mark as Purchased
+  </button>
 </form>
 <% } %>

@@ -21,10 +21,10 @@
         >
         <button type="submit" class="btn btn-danger">Delete Item</button>
       </form>
-      <a href="/lists/<%= item.listId %>" class="btn btn-success"
-        >Back to List</a
-      >
       <% if(currentUser) { %> <% include ../purchases/purchasing.ejs %> <% } %>
+      <a href="/lists/<%= item.listId %>" class="btn btn-outline-success"
+        >Back to Current List</a
+      >
     </main>
     <% include ../static/partials/baseScript.ejs %>
   </body>

@@ -1,37 +1,46 @@
 const request = require("request");
 const server = require("../../src/server");
 const base = "http://localhost:3000/lists";
-
+const User = require("../../src/db/models").User;
 const sequelize = require("../../src/db/models/index").sequelize;
 const List = require("../../src/db/models").List;
 const Item = require("../../src/db/models").Item;
 
 describe("routes : items", () => {
   beforeEach(done => {
-    this.topic;
+    this.list;
     this.item;
+    this.user;
 
     sequelize.sync({ force: true }).then(res => {
-      //#1
-      List.create({
-        listName: "Grocery"
-      }).then(list => {
-        this.list = list;
+      User.create({
+        email: "user1@gmail.com",
+        password: "12345678"
+      }).then(user => {
+        this.user = user;
 
-        Item.create({
-          itemName: "milk",
-          quantity: 1,
-          purchased: false,
-          listId: this.list.id
-        })
-          .then(item => {
-            this.item = item;
-            done();
-          })
-          .catch(err => {
-            console.log(err);
-            done();
-          });
+        List.create(
+          {
+            listName: "Grocery",
+            items: [
+              {
+                itemName: "milk",
+                quantity: 1,
+                userId: this.user.id
+              }
+            ]
+          },
+          {
+            include: {
+              model: Item,
+              as: "items"
+            }
+          }
+        ).then(list => {
+          this.list = list;
+          this.item = list.items[0];
+          done();
+        });
       });
     });
   });
@@ -52,8 +61,7 @@ describe("routes : items", () => {
         url: `${base}/${this.list.id}/items/create`,
         form: {
           itemName: "milk",
-          quantity: 1,
-          purchased: false
+          quantity: 1
         }
       };
       request.post(options, (err, res, body) => {

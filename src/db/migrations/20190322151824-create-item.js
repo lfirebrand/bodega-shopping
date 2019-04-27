@@ -13,11 +13,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       quantity: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      purchased: {
-        type: Sequelize.BOOLEAN
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,

@@ -82,7 +82,7 @@ module.exports = {
             callback(err);
           });
       } else {
-        req.flash("You are not authorized to do that.");
+        console.log("You are not authorized to do that.");
         callback("Forbidden");
       }
     });

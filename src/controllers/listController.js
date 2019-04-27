@@ -38,7 +38,6 @@ module.exports = {
         }
       });
     } else {
-      // #3
       console.log("You are not allowed to do that.");
       res.redirect("/lists");
     }
