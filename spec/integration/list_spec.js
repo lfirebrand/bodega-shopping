@@ -24,8 +24,6 @@ describe("routes : lists", () => {
   });
 
   describe("admin user performing CRUD actions for List", () => {
-    // before each test in admin user context, send an authentication request
-    // to a route we will create to mock an authentication request
     beforeEach(done => {
       User.create({
         email: "admin@example.com",
