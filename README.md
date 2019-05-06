@@ -13,10 +13,10 @@ When users click on a List they will be taken to the List view, which lists the 
 # Getting started
 
 Clone the repo:
-`git clone https://github.com/lfirebrand/shopping-app.git`
+`git clone https://github.com/lfirebrand/bodega-shopping.git`
 
 Install project dependencies:
-`cd shopping-app && npm install`
+`cd bodega-shopping && npm install`
 
 # Start the server
 `npm run start`
